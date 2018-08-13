@@ -9,7 +9,6 @@ git:
   depth: 1
 
 matrix:
-  fast_finish: false
   include:
     - os: linux
       compiler: g++
@@ -279,7 +278,7 @@ before_script:
 
 script:
   - cmake --build . --config ${CONFIGURATION} -- -j${JOBS}
-  - ctest -V --output-on-failure -С ${CONFIGURATION} -j${JOBS}
+  - ctest --output-on-failure -С ${CONFIGURATION} -j${JOBS}
 
 notifications:
   email: false
